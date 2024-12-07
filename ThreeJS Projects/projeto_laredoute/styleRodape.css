@@ -241,7 +241,7 @@
     flex-wrap: wrap; /* Quebra os links em várias linhas, se necessário */
     gap: 5px; /* Espaçamento entre os links e os separadores */
     align-items: center;
-    margin-left: 45px;
+    margin-left: 40px;
 }
 
 .links_rodape a {

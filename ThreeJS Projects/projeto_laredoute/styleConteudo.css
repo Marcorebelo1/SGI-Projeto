@@ -1,0 +1,443 @@
+/* ========================================
+   Secção: Conteudo
+========================================= */
+.conteudo_pagina {
+    padding: 50px;
+}
+
+.titulo_pagina {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+/* Permite os icons estarem alinhados com as sugestoes de pesquisa */
+.conteudo_cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+/* Resultado da Pesquisa */
+.resultado_pesquisa {
+    max-width: 300px;
+}
+
+/* ========================================
+   Secção: Categorias Pesquisa Texto
+========================================= */
+/* Resultado Pesquisa Navegação */
+.resultado_pesquisa_navegacao {
+    font-size: 14px;
+    color: #d1d5db;
+    margin-bottom: 10px;
+}
+
+/* La Redoute / Candeeiro muda a parte de La Redoute*/
+.resultado_pesquisa_link {
+    color: #d1d5db;
+    text-decoration: none;
+}
+
+/* La Redoute / Candeeiro muda a parte do Candeeiro*/
+.resultado_pesquisa_atual strong {
+    color: #6b7280;
+    font-weight: bold;
+}
+
+/* Container para organizar o espaço entre o contador e o titulo */
+.titulo_pesquisa_container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 15px; /* Espaço entre o título e o contador */
+}
+
+/* "Candeeiro" */
+.titulo_pesquisa {
+    font-size: 48px;
+    font-weight: bold;
+    color: #000;
+    margin: 10px;
+}
+
+.texto_negrito {
+    font-weight: bold;
+}
+
+/*Caracteristicas do Contador Resultados*/
+.contador_resultado {
+    background-color: #e5e7eb;
+    color: #6b7280;
+    font-size: 12px;
+    padding: 2px 10px;
+    border-radius: 20px;
+}
+
+/* ========================================
+   Secção: Categoria de Candeeiros Icon
+========================================= */
+.titulo_iluminacao {
+    font-size: 20px;
+    font-weight: bold;
+    color: #000;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.titulo_iluminacao .contador {
+    color: #9ca3af;
+    /* Cor cinza */
+    font-weight: bold;
+}
+
+/* Lista de Categorias */
+.lista_categorias {
+    list-style: none;
+    padding: 0;
+    margin-top: 5px;
+}
+
+.lista_categorias li {
+    font-size: 16px;
+    color: #4b5563;
+    /* Cor cinza escuro */
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espaço entre o texto e o contador */
+    margin-top: 5px;
+}
+
+
+/* Contador Cinza -> Resultados das pesquisas a cinza */
+.contador_cinza {
+    color: #d1d5db;
+    /* Cor cinza claro */
+    font-size: 14px;
+}
+
+/* ========================================
+   Secção: Categorias de Candeeiros Icon
+========================================= */
+
+/* Categorias */
+.categorias_candeeiros {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    gap: 20px;
+    flex: 1;
+}
+
+/* Cada Item de Categoria */
+.categoria_item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 100px;
+}
+
+/* Imagem dos Candeeiros */
+.categoria_item img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    /* Garante que a imagem se ajusta ao container sem distorcer */
+    margin-bottom: 10px;
+}
+
+/* Texto das Categorias */
+.categoria_item span {
+    font-size: 14px;
+    color: #333;
+}
+
+
+/* Filtros e Ordenação */
+.filtros_ordenacao {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+
+.opcoes_cores {
+    display: flex;
+    gap: 10px;
+}
+
+.cor {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+/* Ordenação */
+.ordenacao select {
+    margin-right: 10px;
+}
+
+
+/* ========================================
+   Secção: Filtros de Ordenacao
+========================================= */
+
+.filtros_ordenacao {
+    display: flex;  /* Alinha os elementos em linha */
+    justify-content: right;
+    gap: 165px;
+    margin-bottom: 40px;
+    margin-right: 30px;
+}
+
+.filtro_select {
+    padding: 8px 12px; /* Espaçamento interno */
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+
+/* ========================================
+   Secção: Filtros de Seleção
+========================================= */
+
+/* Container principal */
+.container_principal {
+    display: flex;
+    gap: 20px; /* Espaçamento entre filtros laterais e produtos */
+}
+
+/* Filtros */
+.filtros {
+    width: 220px;
+    /* Largura fixa para os filtros */
+    background-color: #ffffff;    
+    margin-top: -85px;
+}
+
+
+/* Estilo dos produtos individuais */
+.produto {
+    background-color: #fff;
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+/* ========================================
+   Secção: Cores
+========================================= */
+/* Subtítulo */
+.filtros_subtitulo {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Lista de cores */
+.lista_cores {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+/* Label para cada cor */
+.cor_label {
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+}
+
+/* Ocultar o checkbox padrão */
+.cor_label input[type="checkbox"] {
+    display: none;
+}
+
+/* Círculo de cor */
+.cor_item {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border: 2px solid #000;
+    border-radius: 50%;
+    transition: border-color 0.2s, transform 0.2s;
+}
+
+/* Hover: efeito ao passar o rato */
+.cor_label:hover .cor_item {
+    transform: scale(1.1);
+    border-color: #007bff;
+    /* Cor azul no hover */
+}
+
+/* Checkbox selecionado */
+.cor_label input[type="checkbox"]:checked+.cor_item {
+    border-color: #ff3f52;/* Cor verde quando selecionado */
+    transform: scale(1.1); /* Aumenta ligeiramente tamanho */
+}
+
+/* ========================================
+   Secção: Materiais
+========================================= */
+/* Secção de filtros */
+.filtros_secao {
+    margin-bottom: 20px;
+}
+
+/* Lista de materiais */
+.lista_materiais {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Estilo para os labels */
+.material_label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    margin-bottom: 15px;
+    user-select: none;
+    /* Evita seleção acidental */
+}
+
+/* Checkbox oculto */
+.material_label input[type="checkbox"] {
+    display: none;
+}
+
+/* Quadrado dos materiais */
+.material_item {
+    width: 40px;
+    height: 40px;
+    border: 2px solid #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    cursor: pointer;
+    transition: border-color 0.5s; /*Transicao de tempo para ficar mais bonito*/
+}
+
+/* Imagem dentro do quadrado */
+.material_item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Texto dos materiais */
+.material_nome {
+    font-size: 16px;
+    color: #555;
+}
+
+/* Efeito hover no quadrado e texto */
+.material_label:hover .material_item {
+    border-color: #007bff;
+    /* Cor azul no hover */
+}
+
+.material_label:hover .material_nome {
+    color: #007bff;
+    /* Cor azul no texto */
+}
+
+/* Checkbox selecionado */
+.material_label input[type="checkbox"]:checked+.material_item {
+    border-color: #ff3f52; /* Muda a cor */
+}
+
+.material_label input[type="checkbox"]:checked+.material_item+.material_nome {
+    color: #ff3f52; /* Muda a cor e coloca texto a bold */
+    font-weight: bold;
+}
+
+
+/* ========================================
+   Secção: Lista de Produtos
+========================================= */
+/* Lista de Produtos */
+.lista_produtos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Espaçamento entre os produtos */
+    justify-content: flex-start;/* Alinha os produtos à esquerda */
+    margin-left: 100px;
+}
+
+
+
+.produto {
+    width: calc(33.333% - 20px); /* Ajusta para 3 produtos por linha com espaço entre eles */
+    box-sizing: border-box;
+    padding: 10px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: none;
+}
+
+.produto img {
+    width: 100%;
+    object-fit: cover;/* Garante que as imagens mantenham a proporção */
+    margin-bottom: -5px;
+}
+
+.produto h3 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+.produto p {
+    font-size: 14px;
+    color: #555;
+    flex-grow: 1;
+    text-align: left;
+    margin: 0 0 10px;
+}
+
+.produto .preco {
+    font-size: 16px;
+    font-weight: bold;
+    text-align: left;
+}
+
+/* ========================================
+   Secção: Paginação
+========================================= */
+.paginacao {
+    display: flex;
+    gap: 10px;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 20px 0;
+}
+
+.pagina,
+.proxima_pagina {
+    cursor: pointer;
+    margin: 3px;
+}
+
+.pagina.atual {
+    border: 1px solid #000;
+    padding: 2px 8px;
+    font-weight: bold;
+}
+
+.diversas {
+    padding: 0 5px;
+}

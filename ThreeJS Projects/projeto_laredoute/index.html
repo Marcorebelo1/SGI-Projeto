@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>Three.js HTML Template</title>
+    <title>candeeiro | La Redoute</title>
+    <link rel="icon" href="Icons&Images/IconWebLaRedoute.png" type="image/png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styleCabecalho.css">
     <link rel="stylesheet" href="styleConteudo.css">
@@ -79,8 +80,238 @@
   </header>
 
 
-<br><br>
 
+  <!-- Conteúdo -->
+  <div class="conteudo_pagina">
+    <!-- Navegação e Título da Página -->
+    <div class="conteudo_cabecalho">
+      <!-- Resultado da Pesquisa -->
+    <div class="resultado_pesquisa">
+      <nav class="resultado_pesquisa_navegacao">
+        <a href="#" class="resultado_pesquisa_link">La Redoute</a> /
+        <span class="resultado_pesquisa_atual"><strong>Candeeiro</strong></span>
+      </nav>
+
+      <div class="titulo_pesquisa_container">
+        <h1 class="titulo_pesquisa">“<span class="texto_negrito">Candeeiro</span>”</h1>
+        <span class="contador_resultado">815</span>
+      </div>
+
+      <div class="secao_iluminacao">
+        <h2 class="titulo_iluminacao">Iluminação 
+          <span class="contador">(809)</span>
+        </h2>
+        <ul class="lista_categorias">
+          <li>
+            <span class="categoria_nome">Candeeiros de mesa</span>
+            <span class="contador_cinza">(154)</span>
+          </li>
+          <li>
+            <span class="categoria_nome">Candeeiros de escritório</span>
+            <span class="contador_cinza">(37)</span>
+          </li>
+          <li>
+            <span class="categoria_nome">Cabos</span>
+            <span class="contador_cinza">(5)</span>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+    
+      <!-- Categorias de Candeeiros -->
+      <div class="categorias_candeeiros">
+        <div class="categoria_item">
+          <img src="Icons&Images/CandeeiroDeTeto.png" alt="Candeeiro de teto">
+          <span>Candeeiro <strong>de teto</strong></span>
+        </div>
+        <div class="categoria_item">
+          <img src="Icons&Images/CandeeiroDeMesa.png" alt="Candeeiro de mesa">
+          <span>Candeeiro <strong>de mesa</strong></span>
+        </div>
+        <div class="categoria_item">
+          <img src="Icons&Images/CandeeiroDePe.png" alt="Candeeiro de pé">
+          <span>Candeeiro <strong>de pé</strong></span>
+        </div>
+        <div class="categoria_item">
+          <img src="Icons&Images/CandeeiroDeParede.png" alt="Candeeiro de parede">
+          <span>Candeeiro <strong>de parede</strong></span>
+        </div>
+      </div>
+    </div>
+  
+
+
+
+
+    <!-- Filtros e Ordenação -->
+    <div class="filtros_ordenacao">
+      <select class="filtro_select">
+        <option>Ordenar</option>
+      </select>
+      <select class="filtro_select">
+        <option>Universo</option>
+      </select>
+      <select class="filtro_select">
+        <option>Marcas</option>
+      </select>
+      <select class="filtro_select">
+        <option>Preço</option>
+      </select>
+      <select class="filtro_select">
+        <option>Desconto</option>
+      </select>
+    </div>
+
+
+    <div class="container_principal">
+      <!-- Filtros Verticais -->
+      <div class="filtros">
+        <h3 class="filtros_titulo">Filtros</h3>
+      
+        <!-- Cores -->
+        <div class="filtros_secao">
+          <h4 class="filtros_subtitulo">Cores</h4>
+          <div class="lista_cores">
+            <label class="cor_label">
+              <input type="checkbox" name="cor" value="branco">
+              <span class="cor_item" style="background-color: white;"></span>
+            </label>
+            <label class="cor_label">
+              <input type="checkbox" name="cor" value="preto">
+              <span class="cor_item" style="background-color: black;"></span>
+            </label>
+            <label class="cor_label">
+              <input type="checkbox" name="cor" value="dourado">
+              <span class="cor_item" style="background-color: gold;"></span>
+            </label>
+            <label class="cor_label">
+              <input type="checkbox" name="cor" value="cinzento">
+              <span class="cor_item" style="background-color: rgb(129, 129, 129);"></span>
+            </label>
+            <label class="cor_label">
+              <input type="checkbox" name="cor" value="verde">
+              <span class="cor_item" style="background-color: #66cc99;"></span>
+            </label>
+            <label class="cor_label">
+              <input type="checkbox" name="cor" value="amarelo">
+              <span class="cor_item" style="background-color: #f6da77;"></span>
+            </label>
+          </div>
+        </div>
+      
+        <!-- Material -->
+        <div class="filtros_secao">
+          <h4 class="filtros_subtitulo">Material</h4>
+          <ul class="lista_materiais">
+            <li>
+              <label class="material_label">
+                <input type="checkbox" name="material" value="madeira">
+                <div class="material_item">
+                  <img src="Icons&Images/MaterialMadeira.png" alt="Madeira">
+                </div>
+                <span class="material_nome">Madeira</span>
+              </label>
+            </li>
+            <li>
+              <label class="material_label">
+                <input type="checkbox" name="material" value="metal">
+                <div class="material_item">
+                  <img src="Icons&Images/MaterialMetal.png" alt="Metal">
+                </div>
+                <span class="material_nome">Metal</span>
+              </label>
+            </li>
+            <li>
+              <label class="material_label">
+                <input type="checkbox" name="material" value="plastico">
+                <div class="material_item">
+                  <img src="Icons&Images/MaterialPlastico.png" alt="Plástico">
+                </div>
+                <span class="material_nome">Plástico</span>
+              </label>
+            </li>
+            <li>
+              <label class="material_label">
+                <input type="checkbox" name="material" value="tecido">
+                <div class="material_item">
+                  <img src="Icons&Images/MaterialTecido.png" alt="Tecido">
+                </div>
+                <span class="material_nome">Tecido</span>
+              </label>
+            </li>
+            <li>
+              <label class="material_label">
+                <input type="checkbox" name="material" value="vidro">
+                <div class="material_item">
+                  <img src="Icons&Images/MaterialVidro.png" alt="Vidro">
+                </div>
+                <span class="material_nome">Vidro</span>
+              </label>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    
+      <!-- Lista de Produtos -->
+      <section class="lista_produtos">
+        <article class="produto">
+          <img src="Icons&Images/Lampada1.png" alt="Candeeiro 1">
+          <h3>EGLO</h3>
+          <p>Candeeiro de teto Batallas, EGLO</p>
+          <span class="preco">46,50€</span>
+        </article>
+    
+        <article class="produto">
+          <img src="Icons&Images/Lampada1.png" alt="Candeeiro 2">
+          <h3>EGLO</h3>
+          <p>Candeeiro de teto Batallas, EGLO</p>
+          <span class="preco">46,50€</span>
+        </article>
+        
+        <article class="produto">
+          <img src="Icons&Images/Lampada2.png" alt="Candeeiro 3">
+          <h3>AM.PM</h3>
+          <p>Aplique Titouan, design E. Gallina</p>
+          <span class="preco"><del>149,00€</del> 119,20€</span>
+        </article>
+        
+        <article class="produto">
+          <img src="Icons&Images/Lampada3.png" alt="Candeeiro 4">
+          <h3>AM.PM</h3>
+          <p>Candeeiro de pé XS, Funambule</p>
+          <span class="preco"><del>129,00€</del> 103,20€</span>
+        </article>
+        
+        <article class="produto">
+          <img src="Icons&Images/Lampada4.png" alt="Candeeiro 5">
+          <h3>LA REDOUTE INTERIEURS</h3>
+          <p>Aplique em palhinha, Dolkie</p>
+          <span class="preco"><del>59,99€</del> 44,99€</span>
+        </article>
+        
+        <article class="produto">
+          <img src="Icons&Images/Lampada5.png" alt="Candeeiro 6">
+          <h3>LA REDOUTE INTERIEURS</h3>
+          <p>Candeeiro de mesa, em vidro opalino estriado, Loulou</p>
+          <span class="preco"><del>129,00€</del> 46,50€</span>
+        </article>
+      </section>
+    </div>
+  </div>
+  
+  <!--Paginação-->
+  <div class="paginacao">
+    <span class="pagina atual">1</span>
+    <span class="pagina">2</span>
+    <span class="pagina">3</span>
+    <span class="diversas">...</span>
+    <span class="pagina">9</span>
+    <span class="proxima_pagina">→</span>
+  </div>
+
+  <br>
 
 
   <!--Ofertas Email e Rodapés-->
@@ -95,7 +326,6 @@
             <input type="email" id="email" placeholder="example@email.com" class="oferta_email_campo">
             <button type="submit" class="oferta_email_botao">
               <img src="Icons&Images/IconSetaSubmit.png" alt="Enviar">
-              
             </button>
           </div>
           <p class="oferta_email_descricao">
