@@ -1,0 +1,249 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/*Barra superior, onde está a oferta e o descarregar telefone*/
+.barra_superior {
+    background-color: #1C136D;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch; /* Faz os itens preencherem toda a altura */
+    padding: 20 20px; /* Aumentar a altura da barra */
+}
+
+/*Texto da oferta*/
+.texto_oferta {
+    font-size: 16px;
+    padding: 20px 20px;
+    flex: 1;
+    text-align: center; /*Alinha o texto ao centro*/
+}
+
+/*IconeTelefone no botao descarregar*/
+.icone_telefone {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+}
+
+/*Botao Descarregar app na barra superior*/
+.botao_descarregar {
+    background-color: white;
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    white-space: nowrap;
+    font-size: 16px;
+}
+/* Estilos para o link Descarregar a app */
+.botao_descarregar a {
+    color: black;
+    text-decoration: none; /* Remove o sublinhado */
+    font-weight: bold;
+    margin-right: 15px;
+}
+
+/* Efeito ao passar o rato (hover) */
+.botao_descarregar a:hover {
+    color: #606060;
+}
+
+/* Barra de navegação */
+.barra-navegacao {
+    display: flex;
+    align-items: flex-start;
+    background-color: white;
+    border-bottom: 1px solid #ddd;
+    padding: 10px 20px;
+}
+
+/* Logótipo */
+.logo {
+    margin-right: 20px;
+}
+
+.logo img {
+    height: 120px;
+}
+
+.cabecalho { /*Para permitir mudar as margens na linha superior e ajustar o espaçamento entre linhas*/
+    display: flex;
+    flex-direction: column;
+}
+
+/* Conteúdo da navegação */
+.conteudo-navegacao {
+    flex: 1;
+}
+
+/* Linha superior */
+.linha-superior {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 8px;
+    margin-top: 5px;
+}
+
+.menu_principal a {
+    color: black;
+    
+    text-decoration: none; /* Remover o sublinhado padrão */
+    font-weight: 600; /* Texto a bold */
+    font-size: 12px;
+}
+
+/* Sublinhado personalizado apenas para o link "CASA" */
+.link_casa {
+    position: relative;
+    margin-left: 20px; /* Adiciona margem à esquerda da Casa */
+    margin-right: 20px; /* Adiciona margem à direita da Casa */
+}
+.link_casa::after {
+    content: ''; /* Cria um pseudo-elemento vazio */
+    position: absolute; /* Posiciona o pseudo-elemento de forma absoluta em relação ao elemento pai */
+    left: 0; /* Alinha o pseudo-elemento à esquerda do elemento pai */
+    bottom: -5px; /* Posiciona o pseudo-elemento 5 pixels abaixo do texto */
+    width: 100%; /* Faz o sublinhado ter a mesma largura do texto */
+    height: 2px; /* Define a espessura do sublinhado como 2 pixeis */
+    background-color: black; /* Define a cor do sublinhado como preto */
+}
+
+.link_moda {
+    margin-right: 15px;
+    /* Reduz a margem à direita de MODA */
+}
+
+/* Barra de pesquisa */
+.barra_pesquisa {
+    display: flex;
+    align-items: center;
+    background-color: #f3f5f7;
+    /* Cor de fundo cinza claro */
+    border-radius: 30px;
+    /* Bordas arredondadas */
+    padding: 10px 15px;
+   
+    flex: 1; /* Faz a barra de pesquisa ocupar o espaço disponível */
+}
+/* Campo de pesquisa */
+.campo_pesquisa {
+    flex: 1; /* Ocupa o espaço restante */
+    border: none; /*Remove borda do campo em que se escreve*/
+    background: transparent; /*No campo em que é para escrever */
+    font-size: 16px;
+    outline: none; /* Remove a borda de foco */
+    padding: 0 10px;
+}
+
+.icone_lupa img,
+.icone_fechar img {
+    margin-left: 5px;
+    width: 30px;
+    height: 30px;
+    margin-right: 5px;
+}
+
+
+/* Ícones de Usuario*/
+/* Contêiner de Ícones */
+.icones {
+    display: flex;
+    align-items: center;
+    gap: 20px; /*Ajustar espaçamento*/
+}
+
+/* Links dos Ícones */
+.icone_link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: rgb(10, 10, 10);
+    gap: 10px;
+    font-weight: 600; /* Semi-bold */
+    font-size: 14px;
+}
+/* Efeito ao passar o rato*/
+.icone_link:hover {
+    color: #606060;
+}
+
+
+/* Imagens dos Ícones */
+.icone_imagem {
+    width: 35px;
+    height: 35px;
+    object-fit: contain;
+    margin-right: 15px;  /* Adiciona margem à direita do ícone */
+}
+
+/* Linha inferior (categorias) */
+.linha_inferior {
+    display: flex;
+    gap: 20px;
+    padding-top: 10px;
+    align-items: center;
+}
+
+.linha_inferior a {
+    color: #808080;
+    text-decoration: none; /* Remove o de link */
+    font-weight: 550; /* Semi-bold (opcional) */
+    font-size: 14px;
+}
+
+/* Efeito ao passar o rato -> (hover) */
+.linha_inferior a:hover {
+    color: #606060; /* Cinzento mais escuro ao passar o rato */
+}
+
+
+/* Estilo Base para os Botões */
+.botao_menu,
+.botao_categorias {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    font-weight: 600;
+    /* Semi-bold */
+    cursor: pointer;
+    font-size: 14px;
+}
+/* Estilo Específico para o Botão Menu */
+.botao_menu {
+    background-color: black;
+    color: white;
+}
+/* Estilo Específico para o Botão Categorias */
+.botao_categorias {
+    background-color: #f0f0f0;
+    /* Cor cinza clara */
+    color: black;
+}
+
+/* Ícones nos Botões */
+.icone_botao {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
+/* Botão Profissionais */
+.botao_profissionais {
+    font-weight: bold;
+    color: gray;
+    text-decoration: none;
+    font-size: 14px;
+    margin-left: auto; /* Empurra o botão para a direita */
+    margin-right: 20px;
+}

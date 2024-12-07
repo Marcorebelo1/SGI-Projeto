@@ -1,5 +1,22 @@
-O que é q tem de estar mesmo funcional no proprio, mostrar site laredout.
+Tipos de letra, titulos, texto...
+Pedido de formato p.ex. espacamento x, ... "regras de formatacao"
+
+-> Template
 
 POST its na prototipagem
 
-onde é q se arranja imagem do nosso candeeiro
+
+
+como é q se arranja imagem do nosso candeeiro
+
+estatisticas chegam, graficos e informação?
+mais de 3D
+
+
+ideia como fazer sus por estatistica - forms
+adicionar questoes de categorias no sus
+
+
+segunda tabela, ficha 8 é fazer a media do sus se tiver na categoria,mostrar ficha tentar explicar
+somar e pronto
+

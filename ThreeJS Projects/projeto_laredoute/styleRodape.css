@@ -1,0 +1,273 @@
+/* ========================================
+   Secção: Oferta_Email
+========================================= */
+
+.oferta_email {
+    background-color: #FFE6E6;
+    /* Cor de fundo rosa claro */
+    padding: 50px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Container central */
+.oferta_email_conteudo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 50px;
+    /* Espaçamento entre o título e o formulário */
+    max-width: 1000px;
+    width: 100%;
+}
+
+/* Título da oferta */
+.oferta_email_titulo {
+    font-size: 28px;
+    font-weight: bold;
+    color: black;
+    display: inline-block; /*Aplica propriedade de bloco ao elemento para ele se ir ajustando*/
+    text-align: center; /* Centraliza o texto em relação ao bloco */
+    line-height: 1.2; /* Ajusta o espaçamento entre as linhas */
+    margin: 0; /* Remove a margem padrão */
+}
+
+/* Formulário */
+.oferta_email_formulario {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Label */
+.oferta_email_label {
+    font-size: 16px;
+    font-weight: bold;
+    color: black;
+}
+
+/* Container do campo de e-mail e botão */
+.oferta_email_campo_botao {
+    display: flex;
+    align-items: center;
+}
+
+/* Campo de e-mail */
+.oferta_email_campo {
+    flex: 1;
+    padding: 15px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    outline: none;
+}
+
+/* Botão de envio */
+.oferta_email_botao {
+    background: none;
+    border: none;
+    padding: 0;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.oferta_email_botao img {
+    width: 50px;
+    height: 50px;
+}
+
+/* Descrição */
+.oferta_email_descricao {
+    font-size: 14px;
+    color: black;
+    max-width: 500px;
+    line-height: 1.5;
+    /* Melhor espaçamento entre linhas */
+}
+
+/* ========================================
+   Secção: Rodapé1
+========================================= */
+
+.rodape_1 {
+    background-color: #00454c;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: space-around; /* Distribui os itens uniformemente */
+    align-items: center;
+    flex-wrap: wrap; /* Permite que os itens quebrem em várias linhas se necessário */
+}
+
+/* Estilo de cada item do rodapé */
+.item_rodape {
+    display: flex;
+    /*flex-direction: column;  TODO DECIDIR*/
+    align-items: center;
+    gap: 10px;
+    color: white;
+    font-size: 14px;
+    text-align: center;
+}
+
+/* Estilo dos ícones */
+.icone_rodape {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;/* Garante que os ícones mantêm a proporção */
+}
+
+/* Texto do rodapé */
+.texto_rodape {
+    font-weight: bold;
+}
+
+/* ========================================
+   Secção: Rodapé 2
+========================================= */
+
+.rodape_2 {
+    background-color: #00565f;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start; /* Alinha as colunas no topo */
+    flex-wrap: wrap; /* Permite quebra em telas menores */    
+}
+
+/* Coluna do rodapé */
+.coluna_rodape {
+    flex: 1;
+    max-width: 220px; /* Largura máxima de cada coluna */
+    margin: 10px; /* Espaçamento entre as colunas */
+}
+
+/* Títulos das colunas */
+.titulo_rodape {
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 15px; /* Espaçamento abaixo do título */
+}
+
+/* Lista de links */
+.lista_rodape {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Links da lista */
+.lista_rodape li {
+    margin-bottom: 10px;
+    /* Espaçamento entre os itens da lista */
+}
+
+.lista_rodape a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.lista_rodape a:hover {
+    text-decoration: underline;
+    /* Sublinhado ao passar o mouse */
+}
+
+.linha_separadora {
+    border: none;
+    border-top: 1px solid #ffffff;
+    width: 95%;
+    margin-top: 70px;
+    height: 0;
+}
+
+/* ========================================
+   Secção: Rodapé 3
+========================================= */
+
+.rodape_3 {
+    background-color: #00565f;
+    padding: 20px 20px 0 20px;
+    display: flex;
+    justify-content: space-around; /* Distribui as colunas uniformemente */
+    align-items: flex-start; /* Alinha os itens ao topo */
+    flex-wrap: wrap; /* Permite quebra em telas menores */
+}
+
+/* Coluna do rodapé 3 */
+.coluna_rodape_3 {
+    flex: 1;
+    max-width: 220px;
+    margin: 10px;
+    text-align: center;
+}
+
+/* Título das colunas */
+.titulo_rodape_3 {
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* Ícone do grupo */
+.icone_grupo {
+    width: 100%;/* Ajusta a largura para ocupar o container */
+    max-width: 150px; /* Define um tamanho máximo para a imagem */
+    height: auto;
+    margin-bottom:0px;
+}
+
+/* ========================================
+   Secção: Rodapé 4
+========================================= */
+
+.rodape_4 {
+    background-color: #00565f;
+    padding: 20px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    color: white;
+    font-size: 12px;
+}
+
+/* Estilo dos links */
+.links_rodape {
+    display: flex;
+    flex-wrap: wrap; /* Quebra os links em várias linhas, se necessário */
+    gap: 5px; /* Espaçamento entre os links e os separadores */
+    align-items: center;
+    margin-left: 45px;
+}
+
+.links_rodape a {
+    color: white;
+    text-decoration: none;
+}
+
+.links_rodape a:hover {
+    text-decoration: underline;
+    /* Sublinhado ao passar o mouse */
+}
+
+.links_rodape span {
+    color: white;
+}
+
+/* Secção do idioma */
+.idioma_rodape {
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Espaçamento entre o ícone e o texto */
+    margin-right: 40px;
+}
+
+/* Estilo do ícone do globo */
+.icone_idioma {
+    width: 25px;
+    height: 25px;
+}
