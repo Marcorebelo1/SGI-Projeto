@@ -1,67 +1,87 @@
-// Importar todos os componentes do modulo Three
-//  e outros componentes de modulos complementares
-import * as THREE from 'three'; // importar todos sob o nome THREE
-import Stats from 'three/addons/libs/stats.module.js' // importar default 
-import { OrbitControls } from 'three/addons/controls/OrbitControls.js' // importar componente especifica
+import * as THREE from "three";
+import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 
-//criar um cubo 1x1x1... 
-let geometria = new THREE.BoxGeometry(0.2, 0.2, 0.2);
-let material = new THREE.MeshNormalMaterial();
-let cubo = new THREE.Mesh(geometria, material);
+// Create scene
+let scene = new THREE.Scene();
 
-// criar uma cena... 
-let cena = new THREE.Scene();
+// Enable animations
+let mixer = new THREE.AnimationMixer(scene);
+let actionFlag = null;
 
-// adicionar o cubo à cena... 
-cena.add(cubo);
+// Create camera
+let camera = new THREE.PerspectiveCamera(70, 800 / 600, 0.1, 500);
+camera.position.set(6, 4, 7);
+camera.lookAt(0, 0, 0);
 
-// preparar um renderer WebGL e adicioná-lo à pagina 
-let renderer = new THREE.WebGLRenderer();
-renderer.setSize(window.innerWidth, window.innerHeight);
-document.body.appendChild(renderer.domElement);
+// Renderer
+let canvas = document.getElementById('meuCanvas');
+let renderer = new THREE.WebGLRenderer({ canvas: canvas });
+renderer.setSize(800, 600);
+renderer.setClearColor(0xffffff);
+renderer.shadowMap.enabled = true;
 
-// criar uma camara... 
-let camara = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 0.01, 100);
-camara.position.z = 1;
+// OrbitControls
+new OrbitControls(camera, renderer.domElement);
 
-// criar estatisticas e adiciona-las sobre o canvas
-let stats = new Stats()
-stats.domElement.style.position= 'relative';
-renderer.domElement.style.position= 'absolute';
-document.body.appendChild(stats.domElement);
+/*
+// Grid helper
+let grid = new THREE.GridHelper(10, 10);
+scene.add(grid);*/
 
-// adicionar controlos orbitais
-const controls = new OrbitControls( camara, renderer.domElement );
+// Load the flag model and its animation
+let loader = new GLTFLoader();
+loader.load("/projeto_laredoute/BlenderFiles/ApliqueArticuladoPecaUnica.glb", function (gltf) {
+    scene.add(gltf.scene);
 
-// limitar taxa de atualizacao
-let delta = 0;                      // tempo que passou desde a última atualização
-let relogio = new THREE.Clock();    // componente auxiliar para obtenção do delta
-let latencia_minima = 1 / 60;       // limita a taxa de atualização a 60 atualizações por segundo
+    // Find the "KeyAction" animation and create an action for it
+    let clip = THREE.AnimationClip.findByName(gltf.animations, 'KeyAction');
+    actionFlag = mixer.clipAction(clip);
+});
 
-// loop principal 
-function animar() {
-    requestAnimationFrame(animar);  // agendar animar para o próximo animation frame
-
-    delta += relogio.getDelta();    // acumular tempo que passou desde a ultima chamada de getDelta
-
-    if (delta  < latencia_minima)   // não exceder a taxa de atualizações definida
-        return;                     
-
-    const excedente = delta % latencia_minima // por quanto tempo delta excede um multiplo da latencia minima
-
-    // atualizar e mostrar
-    { 
-        stats.update()                  // atualizar estatisticas
-        
-        const latenciaDiscreta = delta - excedente
-        const velocidadeAngular = 1               // radianos por segundo
-        cubo.rotateY(velocidadeAngular * latenciaDiscreta);  // atualizar rotacao do cubo... 
-
-        renderer.render(cena, camara);  // mostrar ("desenhar" cena 3d)
+// Button event handlers
+document.getElementById("btn_play").onclick = function () {
+    if (actionFlag) {
+        actionFlag.reset();
+        actionFlag.play();
     }
+};
 
-    delta = excedente;// atualizar delta com o excedente
+document.getElementById("btn_pause").onclick = function () {
+    if (actionFlag) {
+        actionFlag.paused = !actionFlag.paused;
+    }
+};
+
+document.getElementById("btn_stop").onclick = function () {
+    if (actionFlag) {
+        actionFlag.stop();
+    }
+};
+
+
+// Light
+let light = new THREE.PointLight("white", 50);
+light.position.set(3, 4, 0);
+scene.add(light);
+light.castShadow = true;
+
+const lightHelper = new THREE.PointLightHelper(light, 0.2);
+scene.add(lightHelper);
+
+
+
+// Luz ambiente para preencher sombras
+let ambientLight = new THREE.AmbientLight("white", 0.4);  // Luz ambiente com intensidade de 0.4
+scene.add(ambientLight);
+
+// Render and animate
+let clock = new THREE.Clock();
+function animate() {
+    requestAnimationFrame(animate);
+    let delta = clock.getDelta();
+    if (mixer) mixer.update(delta);
+    renderer.render(scene, camera);
 }
 
-// iniciar animação... 
-animar();
+animate();

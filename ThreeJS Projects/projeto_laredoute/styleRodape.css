@@ -30,7 +30,7 @@
     display: inline-block; /*Aplica propriedade de bloco ao elemento para ele se ir ajustando*/
     text-align: center; /* Centraliza o texto em relação ao bloco */
     line-height: 1.2; /* Ajusta o espaçamento entre as linhas */
-    margin: 0; /* Remove a margem padrão */
+   margin-bottom: 50px;
 }
 
 /* Formulário */
@@ -83,8 +83,8 @@
     font-size: 14px;
     color: black;
     max-width: 500px;
-    line-height: 1.5;
-    /* Melhor espaçamento entre linhas */
+    line-height: 1.5;/* Melhor espaçamento entre linhas */
+    margin-top: -5px;
 }
 
 /* ========================================
