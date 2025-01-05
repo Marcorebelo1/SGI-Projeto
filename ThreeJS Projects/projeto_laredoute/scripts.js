@@ -32,11 +32,11 @@ const controls = new OrbitControls(camera, renderer.domElement);
 
 // GLTFLoader para carregar modelos 3D
 const loader = new GLTFLoader();
-let selectedPart = null; // This will store the name of the selected part
+let selectedPart = null; // Pate selecionada ppelo user
 
-let gltfModel = null; // Global variable for the GLTF model
-let mixer = null; // Mixer for animations
-let actions = []; // Array of animation actions
+let gltfModel = null; // modelo gltf
+let mixer = null; // mixer das animações
+let actions = []; // vetor de animações
 
 // Função para alternar imagens e o modelo 3D
 function mudarImagem(elemento) {
@@ -46,28 +46,33 @@ function mudarImagem(elemento) {
     const controlButtonsContainer = document.getElementById("control_buttons");
 
     if (elemento.alt === "Ver em 3D") {
+
+        alert(
+            "Bem-vindo à secção 3D do Aplique Articulado!\n\n" +
+            "Aqui estão as funcionalidades disponíveis:\n" +
+            "1. Pode mudar a textura do aplique utilizando os botões de 'Textura Madeira' ou 'Remover Madeira'.\n" +
+            "2. Pode alterar a cor do aplique selecionando uma das opções disponíveis e escolher a parte que prentede trocar a cor ('Selecionar Suporte', 'Selecionar Tudo').\n" +
+            "3. Clique nos botões de animação para iniciar diferentes animações para ver os diferentes movimentos do Aplique (e.x., 'Play SupportJointAnimation').\n" +
+            "4. Use os botões 'Play', 'Pause' e 'Stop' para controlar as animações.\n" +
+            "Explore todas as funcionalidades e ajusta o Aplique ao seu gosto!"
+        );
+
         imagemPrincipal.style.display = "none";
         canvas3D.style.display = "block";
         buttonContainer.innerHTML = "";
         controlButtonsContainer.innerHTML = "";
 
-        loader.load("/projeto_laredoute/BlenderFiles/CandeeiroAnimationsSembake.glb", (gltf) => {
-            // Remove previous models´
+        loader.load("/projeto_laredoute/BlenderFiles/Animacoes.glb", (gltf) => {
+            // Remover modelos
             removeCurrentModel();
             gltfModel = gltf;
-            // while (scene.children.length > 0) {
 
 
 
-            //}
-
-            // Store the loaded model globally
-
-
-            // Add the new model to the scene
+            // adicionar novo modelo
             scene.add(gltf.scene);
 
-            // Set up animations
+            // animações
             mixer = new THREE.AnimationMixer(gltf.scene);
             actions = [];
             gltf.animations.forEach((clip) => {
@@ -86,7 +91,8 @@ function mudarImagem(elemento) {
         controlButtonsContainer.innerHTML = "";
     }
 }
-// Function to remove the current model from the scene
+
+// remover modelo da cena
 function removeCurrentModel() {
     if (gltfModel && gltfModel.scene) {
         gltfModel.scene.traverse((child) => {
@@ -105,10 +111,10 @@ function removeCurrentModel() {
             }
         });
 
-        // Remove the model from the scene
+
         scene.remove(gltfModel.scene);
 
-        // Clear references to the model
+
         gltfModel = null;
     }
 }
@@ -118,26 +124,23 @@ function removeTexture() {
             if (child.isMesh && (!selectedPart || child.name === selectedPart)) {
                 if (Array.isArray(child.material)) {
                     child.material.forEach((mat) => {
-                        mat.map = null; // Remove texture
+                        mat.map = null; // remover textura
                         mat.needsUpdate = true;
                     });
                 } else {
-                    child.material.map = null; // Remove texture
+                    child.material.map = null; // Remover textura
                     child.material.needsUpdate = true;
                 }
             }
         });
 
-        renderer.render(scene, camera); // Update the renderer
+        renderer.render(scene, camera);
     } else {
         console.warn("Model not loaded or part not found.");
     }
 }
 
-function selectPart(partName) {
-    selectedPart = partName;
-    console.log("Selected part:", selectedPart);
-}
+
 // Function to change color
 function changeColor(color) {
     if (gltfModel && gltfModel.scene) {
@@ -167,30 +170,30 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 document.getElementById("removeTexture").onclick = function () {
-    removeTexture(); // Calls the function to remove the texture
+    removeTexture();
 };
 document.getElementById("colorGold").onclick = function () {
 
-    changeColor('gold'); // Calls the function when clicked
+    changeColor('gold'); // chamar funcao
 
 
 };
 
 document.getElementById("colorWhite").onclick = function () {
-    changeColor('white'); // Calls the function when clicked
+    changeColor('white');
 };
 
 document.getElementById("colorBlack").onclick = function () {
-    changeColor('black'); // Calls the function when clicked
+    changeColor('black');
 };
-// Attach changeColor to buttons
+
 document.getElementById("selectCone").onclick = function () {
-    selectedPart = 'ArmToAbajurJoint'; // Replace with the actual name of the cone in your GLB file
+    selectedPart = 'ArmToAbajurJoint'; // muda selected part
     console.log("Selected part: Cone (Abajur)");
 };
 
 document.getElementById("selectRest").onclick = function () {
-    selectedPart = null; // Reset selected part to indicate "rest of the model"
+    selectedPart = null; // selected part = null (todo o modelo)
     console.log("Selected part: Rest of the model");
 };
 document.getElementById("textureWood").onclick = function () {
@@ -226,7 +229,7 @@ function changeTexture(texturePath) {
 }
 
 
-// Create button for each animation
+// Botão para cada animação
 function createAnimationButton(name, action) {
     const buttonContainer = document.getElementById("animation_buttons");
     const buttonId = `btn_${name}`;
@@ -244,7 +247,7 @@ function createAnimationButton(name, action) {
         buttonContainer.appendChild(button);
     }
 }
-
+//cria botoes de controlo
 function createControlButtons(container) {
     const playButton = document.createElement("button");
     playButton.innerText = "Play";
@@ -272,40 +275,6 @@ function createControlButtons(container) {
     container.appendChild(stopButton);
 }
 
-// Função para alterar a cor do candeeiro
-function alterarCor(cor) {
-    if (gltfModel && gltfModel.scene) {
-        gltfModel.scene.traverse((child) => {
-            if (child.isMesh) {
-                if (Array.isArray(child.material)) {
-                    child.material.forEach((mat) => {
-                        mat.color.set(cor);
-                        mat.needsUpdate = true;
-                    });
-                } else if (child.material.color) {
-                    child.material.color.set(cor);
-                    child.material.needsUpdate = true;
-                } else {
-                    child.material = new THREE.MeshStandardMaterial({
-                        color: cor,
-                        metalness: 0.5,
-                        roughness: 0.5,
-                    });
-                    child.material.needsUpdate = true;
-                }
-            }
-        });
-
-        renderer.render(scene, camera); // Update the renderer
-    } else {
-        console.warn("Model not loaded yet.");
-    }
-}
-
-
-
-// Torne a função global
-window.alterarCor = alterarCor;
 
 // Animation loop
 const clock = new THREE.Clock();
