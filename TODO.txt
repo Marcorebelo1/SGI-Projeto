@@ -1,5 +1,3 @@
-Criar conta no site e ver erros
-
 Passar parao documento fornecido para projeto
 
 Huristica -> Template
@@ -7,19 +5,17 @@ Huristica -> Template
 
 TODO'S
 
-AH
-Melhorar aquilo
+
+
 Passar tabela
+
+
 
 
 AUT E SUS
 Acabar a analise estatistica
 graficos circulares
 perguntas 3d
-
-
-FIGMA
-referencias produtos e interação 3d
 
 
 CODIGO

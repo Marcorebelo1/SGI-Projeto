@@ -2,13 +2,12 @@ import * as THREE from "three";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 
-
-
 // Inicialização do Three.js
+const textureLoader = new THREE.TextureLoader();
 const canvas = document.getElementById("meuCanvas");
 const renderer = new THREE.WebGLRenderer({ canvas: canvas });
-renderer.setSize(650, 550); //(largura, altura)
-renderer.setClearColor("black"); // Cor de fundo
+renderer.setSize(450, 450); //(largura, altura)
+renderer.setClearColor("white"); // Cor de fundo
 renderer.shadowMap.enabled = true; // Ativa sombras
 
 // Cena
@@ -20,8 +19,6 @@ camera.position.set(2, 4, 13);
 camera.lookAt(0, 0, 0);
 scene.add(camera);
 
-
-
 // Luzes
 const light = new THREE.PointLight("white", 1);
 light.position.set(3, 4, 0);
@@ -30,165 +27,265 @@ scene.add(light);
 const ambientLight = new THREE.AmbientLight("white", 0.4);
 scene.add(ambientLight);
 
-
-
 // OrbitControls
 const controls = new OrbitControls(camera, renderer.domElement);
 
 // GLTFLoader para carregar modelos 3D
 const loader = new GLTFLoader();
-let mixer; // Mixer para animações
-let actionFlag; // Ação atual da animação
-let actions = []; // Lista de ações de animação (Array)
+let selectedPart = null; // This will store the name of the selected part
+
+let gltfModel = null; // Global variable for the GLTF model
+let mixer = null; // Mixer for animations
+let actions = []; // Array of animation actions
 
 // Função para alternar imagens e o modelo 3D
 function mudarImagem(elemento) {
     const imagemPrincipal = document.getElementById("imagem_principal_produto");
     const canvas3D = document.getElementById("modelo_3d");
-    const buttonContainer = document.getElementById("animation_buttons"); // Contêiner dos botões
-    const controlButtonsContainer = document.getElementById("control_buttons"); // Contêiner dos botões de controle
+    const buttonContainer = document.getElementById("animation_buttons");
+    const controlButtonsContainer = document.getElementById("control_buttons");
 
-    // Verifica se a miniatura é a do 3D
     if (elemento.alt === "Ver em 3D") {
-        // Esconde a imagem principal e mostra o canvas 3D
         imagemPrincipal.style.display = "none";
         canvas3D.style.display = "block";
-
-        // Limpa o contêiner de botões antes de recriar
         buttonContainer.innerHTML = "";
-        controlButtonsContainer.innerHTML = ""; // Limpa os botões de controle
+        controlButtonsContainer.innerHTML = "";
 
-        // Carrega o modelo 3D
         loader.load("/projeto_laredoute/BlenderFiles/CandeeiroAnimationsSembake.glb", (gltf) => {
+            // Remove previous models´
+            removeCurrentModel();
+            gltfModel = gltf;
+            // while (scene.children.length > 0) {
 
-            // Remove modelos anteriores
-            while (scene.children.length > 0) {
-                scene.remove(scene.children[0]);
-            }
 
-            // Adiciona o novo modelo
+
+            //}
+
+            // Store the loaded model globally
+
+
+            // Add the new model to the scene
             scene.add(gltf.scene);
 
-            // Configura animação, se disponível
+            // Set up animations
             mixer = new THREE.AnimationMixer(gltf.scene);
-
-            // Limpa a lista de ações e cria os botões para as novas animações
             actions = [];
             gltf.animations.forEach((clip) => {
-                let action = mixer.clipAction(clip);
+                const action = mixer.clipAction(clip);
                 actions.push(action);
-
-                // Cria botões para as animações
                 createAnimationButton(clip.name, action);
             });
 
-            // Cria os botões gerais (Play, Pause, Stop)
             createControlButtons(controlButtonsContainer);
         });
     } else {
-        // Mostra a imagem principal
         canvas3D.style.display = "none";
         imagemPrincipal.style.display = "block";
         imagemPrincipal.src = elemento.src;
+        buttonContainer.innerHTML = "";
+        controlButtonsContainer.innerHTML = "";
+    }
+}
+// Function to remove the current model from the scene
+function removeCurrentModel() {
+    if (gltfModel && gltfModel.scene) {
+        gltfModel.scene.traverse((child) => {
+            if (child.isMesh) {
+                // Dispose of geometries
+                if (child.geometry) child.geometry.dispose();
 
-        // Remove os botões de animação e controle ao sair da visualização 3D
-        buttonContainer.innerHTML = ""; // Limpa todos os botões de animação
-        controlButtonsContainer.innerHTML = ""; // Limpa os botões de controle
+                // Dispose of materials
+                if (child.material) {
+                    if (Array.isArray(child.material)) {
+                        child.material.forEach((mat) => mat.dispose());
+                    } else {
+                        child.material.dispose();
+                    }
+                }
+            }
+        });
+
+        // Remove the model from the scene
+        scene.remove(gltfModel.scene);
+
+        // Clear references to the model
+        gltfModel = null;
+    }
+}
+function removeTexture() {
+    if (gltfModel && gltfModel.scene) {
+        gltfModel.scene.traverse((child) => {
+            if (child.isMesh && (!selectedPart || child.name === selectedPart)) {
+                if (Array.isArray(child.material)) {
+                    child.material.forEach((mat) => {
+                        mat.map = null; // Remove texture
+                        mat.needsUpdate = true;
+                    });
+                } else {
+                    child.material.map = null; // Remove texture
+                    child.material.needsUpdate = true;
+                }
+            }
+        });
+
+        renderer.render(scene, camera); // Update the renderer
+    } else {
+        console.warn("Model not loaded or part not found.");
+    }
+}
+
+function selectPart(partName) {
+    selectedPart = partName;
+    console.log("Selected part:", selectedPart);
+}
+// Function to change color
+function changeColor(color) {
+    if (gltfModel && gltfModel.scene) {
+        gltfModel.scene.traverse((child) => {
+            if (child.isMesh && (!selectedPart || child.name === selectedPart)) {
+                if (Array.isArray(child.material)) {
+                    child.material.forEach((mat) => {
+                        mat.color.set(color);
+                        mat.needsUpdate = true;
+                    });
+                } else {
+                    child.material.color.set(color);
+                    child.material.needsUpdate = true;
+                }
+            }
+        });
+        renderer.render(scene, camera); // Update the renderer
+    } else {
+        console.warn("Model not loaded yet or part not found.");
+    }
+}
+document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll(".cor").forEach((span) => {
+        span.addEventListener("click", function () {
+            console.log("Span clicked:", this.id);
+        });
+    });
+});
+document.getElementById("removeTexture").onclick = function () {
+    removeTexture(); // Calls the function to remove the texture
+};
+document.getElementById("colorGold").onclick = function () {
+
+    changeColor('gold'); // Calls the function when clicked
+
+
+};
+
+document.getElementById("colorWhite").onclick = function () {
+    changeColor('white'); // Calls the function when clicked
+};
+
+document.getElementById("colorBlack").onclick = function () {
+    changeColor('black'); // Calls the function when clicked
+};
+// Attach changeColor to buttons
+document.getElementById("selectCone").onclick = function () {
+    selectedPart = 'ArmToAbajurJoint'; // Replace with the actual name of the cone in your GLB file
+    console.log("Selected part: Cone (Abajur)");
+};
+
+document.getElementById("selectRest").onclick = function () {
+    selectedPart = null; // Reset selected part to indicate "rest of the model"
+    console.log("Selected part: Rest of the model");
+};
+document.getElementById("textureWood").onclick = function () {
+    changeTexture("/projeto_laredoute/BlenderFiles/wood.jpg");
+
+};
+
+// Torna a função disponível globalmente
+window.mudarImagem = mudarImagem;
+function changeTexture(texturePath) {
+    if (gltfModel && gltfModel.scene) {
+        const texture = textureLoader.load(texturePath, () => {
+            console.log(`Texture ${texturePath} loaded successfully.`);
+            renderer.render(scene, camera); // Update renderer after loading
+        });
+
+        gltfModel.scene.traverse((child) => {
+            if (child.isMesh && (!selectedPart || child.name === selectedPart)) {
+                if (Array.isArray(child.material)) {
+                    child.material.forEach((mat) => {
+                        mat.map = texture;
+                        mat.needsUpdate = true;
+                    });
+                } else {
+                    child.material.map = texture;
+                    child.material.needsUpdate = true;
+                }
+            }
+        });
+    } else {
+        console.warn("Model not loaded or part not found.");
     }
 }
 
 
-
-// Torna a função disponível globalmente
-window.mudarImagem = mudarImagem;
-
 // Create button for each animation
 function createAnimationButton(name, action) {
-    let buttonContainer = document.getElementById("animation_buttons");
-
-    // Verifica se o botão já existe pelo seu ID único
-    let buttonId = `btn_${name}`;
+    const buttonContainer = document.getElementById("animation_buttons");
+    const buttonId = `btn_${name}`;
     let existingButton = document.getElementById(buttonId);
 
     if (!existingButton) {
-        // Cria novo botão se ainda não existir
-        let button = document.createElement('button');
-        button.id = buttonId; // Define o ID único
+        const button = document.createElement("button");
+        button.id = buttonId;
         button.innerText = `Play ${name}`;
         button.onclick = function () {
-            // Para todas as ações antes de tocar a selecionada
-            actions.forEach(a => a.stop());
-
-            // Toca a animação selecionada
+            actions.forEach((a) => a.stop());
             action.reset().play();
         };
 
         buttonContainer.appendChild(button);
-    } else {
-        // Atualiza o texto ou comportamento do botão existente, se necessário
-        existingButton.innerText = `Play ${name}`; // Exemplo de atualização
-        existingButton.onclick = function () {
-            // Para todas as ações antes de tocar a selecionada
-            actions.forEach(a => a.stop());
-
-            // Toca a animação selecionada
-            action.reset().play();
-        };
     }
 }
 
 function createControlButtons(container) {
-    // Botão Play (O objetivo é utilizar o mesmo comportamento do paused para dar play)
-    let playButton = document.createElement('button');
+    const playButton = document.createElement("button");
     playButton.innerText = "Play";
     playButton.onclick = function () {
-        actions.forEach(action => {
-            action.paused = !action.paused; // Alterna o estado de pausa
+        actions.forEach((action) => {
+            action.paused = !action.paused;
         });
     };
     container.appendChild(playButton);
 
-    // Botão Pause
-    let pauseButton = document.createElement('button');
+    const pauseButton = document.createElement("button");
     pauseButton.innerText = "Pause";
     pauseButton.onclick = function () {
-        actions.forEach(action => {
-            action.paused = !action.paused; // Alterna o estado de pausa
+        actions.forEach((action) => {
+            action.paused = !action.paused;
         });
     };
     container.appendChild(pauseButton);
 
-    // Botão Stop
-    let stopButton = document.createElement('button');
+    const stopButton = document.createElement("button");
     stopButton.innerText = "Stop";
     stopButton.onclick = function () {
-        actions.forEach(action => {
-            action.stop(); // Para todas as animações
-        });
+        actions.forEach((action) => action.stop());
     };
     container.appendChild(stopButton);
 }
 
-
 // Função para alterar a cor do candeeiro
 function alterarCor(cor) {
-    console.log('Alterando cor para:', cor);
-
-    scene.traverse((child) => {
-        if (child.isMesh) {
-            if (child.material) {
+    if (gltfModel && gltfModel.scene) {
+        gltfModel.scene.traverse((child) => {
+            if (child.isMesh) {
                 if (Array.isArray(child.material)) {
                     child.material.forEach((mat) => {
-                        if (mat.color) {
-                            mat.color.set(cor);
-                            mat.needsUpdate = true;
-                        }
+                        mat.color.set(cor);
+                        mat.needsUpdate = true;
                     });
                 } else if (child.material.color) {
                     child.material.color.set(cor);
                     child.material.needsUpdate = true;
                 } else {
-                    console.log('Material sem cor. Criando um novo material padrão.');
                     child.material = new THREE.MeshStandardMaterial({
                         color: cor,
                         metalness: 0.5,
@@ -196,32 +293,29 @@ function alterarCor(cor) {
                     });
                     child.material.needsUpdate = true;
                 }
-            } else {
-                console.log('Mesh encontrada sem material:', child.name);
             }
-        }
-    });
+        });
 
-    console.log('Cor alterada com sucesso');
-    renderer.render(scene, camera);
+        renderer.render(scene, camera); // Update the renderer
+    } else {
+        console.warn("Model not loaded yet.");
+    }
 }
+
 
 
 // Torne a função global
 window.alterarCor = alterarCor;
 
-
-// Loop de animação
+// Animation loop
 const clock = new THREE.Clock();
 function animate() {
     requestAnimationFrame(animate);
-
-    // Atualiza animações
     if (mixer) {
         const delta = clock.getDelta();
         mixer.update(delta);
     }
-
     renderer.render(scene, camera);
 }
 animate();
+

@@ -3,18 +3,20 @@
 .container_produto {
     display: flex;
     flex-wrap: wrap;
-    gap: 80px;
-    padding: 20px;
+    margin-right: 20px;
     background-color: #fff;
-    margin-left: 20px;
+    margin-left: 40px;
+    gap: 30px;
 }
 
 /* Galeria de Imagens */
 .galeria_fotos_produto {
-    max-width: 45%;
+    max-width: 49%;
     display: flex;
     flex-direction: column;
     gap: 10px;
+    align-items: center;
+    text-align: center;
 }
 
 
@@ -52,12 +54,20 @@
 #modelo_3d {
     display: none; /* Escondido por padrão */
     border: 1px solid #000000;
-    max-width: 100%;
-    max-height: 100%;
+    max-width: 450px;
+    max-height: 450px;
     border-radius: 5px;
     z-index: 1;
     position: relative;
     
+}
+
+
+#animation_buttons button,
+#control_buttons button {
+    width: auto;
+    padding: 10px 20px;
+    text-align: center;
 }
 
 /* Breadcrumb e Título do Produto */
@@ -130,36 +140,7 @@
     cursor: pointer;
     margin-top: 5px;
 }
-/* Avaliação do Produto */
-.avaliacao_produto {
-    display: flex;
-    align-items: center;
-    gap: 5px; 
-    font-size: 14px;
-    color: #6b7280;
-}
 
-/* Estrela */
-.estrela_avaliacao {
-    font-size: 16px;
-    color: #f5a623;
-    margin-right: 5px;
-}
-
-/* Nota da Avaliação */
-.nota_avaliacao {
-    font-weight: bold;
-    color: #000;
-}
-
-/* Link para as Avaliações */
-.link_avaliacoes_canndeiro {
-    color: #6b7280;
-    text-decoration: underline;
-    cursor: pointer;
-    font-size: 14px;
-    margin-left: 500px;
-}
 
 
 /* Container principal */
@@ -189,6 +170,16 @@
     gap: 10px;
     background-color: #fff;
 }
+.caixa_opcao2 {
+    flex: 1;
+    border: 5px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    background-color: #fff;
+}
 
 /* Título da opção */
 .titulo_opcao {
@@ -209,12 +200,20 @@
 /* Cores disponíveis */
 .cores_disponiveis_produto {
     display: flex;
+    align-items: center;
     gap: 10px;
 }
 
+.cor_div{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
 .cor {
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
     border: 2px solid #000000;
     border-radius: 50%;
     cursor: pointer;
@@ -429,23 +428,17 @@
 
     .miniatura {
         width: 60px;
-        /* Reduz o tamanho das miniaturas */
         height: 60px;
     }
 
     /* Detalhes do produto ocupam 100% */
     .detalhes_produto_principal {
         max-width: 100%;
-        /* Detalhes ocupam a largura total */
         width: 100%;
         padding: 0 20px;
-        /* Adiciona padding lateral */
     }
 
-    /* Cada caixa de opção ocupa 100% */
-    .caixa_opcao {
-        flex: 1 1 100%;
-    }
+    
 
     /* Botão Klarna e Juntar ao Carrinho centralizados */
     .botao_klarna,
@@ -937,29 +930,11 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*Secção em destaque*/
 .em_destaque {
     padding: 20px;
     background-color: #f4f8f8;
-    margin-top: 40px;
+    margin-top: 20px;
     
 }
 
@@ -974,8 +949,9 @@
 .lista_destaque {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 20px;
     margin-left: 20px;
+    row-gap: 30px;
 }
 
 /* Tags Individuais */

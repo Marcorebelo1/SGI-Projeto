@@ -66,6 +66,10 @@
     font-weight: bold;
 }
 
+.categoria_nome, .contador_cinza, .titulo_iluminacao{
+    cursor: pointer;
+}
+
 /*Caracteristicas do Contador Resultados*/
 .contador_resultado {
     background-color: #e5e7eb;
@@ -181,18 +185,19 @@
 .filtros_ordenacao {
     display: flex;  /* Alinha os elementos em linha */
     justify-content: right;
-    gap: 30px;
+    gap: 10x;
     margin-bottom: 40px;
     margin-right: 20;
 }
 
 .filtro_select {
-    padding: 8px 12px; /* Espaçamento interno */
+    padding: 8px 12px;
     font-size: 14px;
     border: 1px solid #ccc;
     border-radius: 5px;
     background-color: #fff;
     cursor: pointer;
+    margin-right: 30px;
 }
 
 
@@ -208,10 +213,10 @@
 
 /* Filtros */
 .filtros {
-    width: 220px;
-    /* Largura fixa para os filtros */
+    width: 220px; /* Largura fixa para os filtros */
     background-color: #ffffff;    
     margin-top: -85px;
+    
 }
 
 
@@ -221,6 +226,7 @@
     padding: 10px;
     border: 1px solid #ddd;
     text-align: center;
+    cursor:pointer;
 }
 
 /* ========================================
@@ -435,3 +441,29 @@
 .diversas {
     padding: 0 5px;
 }
+
+/* ========================================
+   Secção: Link rederecionar pagina erro
+=========================================*/
+   .link_sem_estilo {
+       text-decoration: none;
+       /* Remove o sublinhado */
+       color: inherit;
+       /* Mantém a cor original do texto */
+       display: flex;
+       /* Garante que os elementos internos mantenham o alinhamento */
+       align-items: center;
+       /* Alinha verticalmente */
+   }
+
+   .link_sem_estilo:hover,
+   .link_sem_estilo:focus {
+       text-decoration: none;
+       /* Evita mudanças de estilo ao passar o mouse */
+       color: inherit;
+       /* Garante que a cor não mude */
+   }
+
+
+
+
