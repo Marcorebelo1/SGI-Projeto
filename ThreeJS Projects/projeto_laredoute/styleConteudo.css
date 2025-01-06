@@ -5,11 +5,6 @@
     padding: 50px;
 }
 
-.titulo_pagina {
-    font-size: 32px;
-    font-weight: bold;
-}
-
 /* Permite os icons estarem alinhados com as sugestoes de pesquisa */
 .conteudo_cabecalho {
     display: flex;
@@ -27,7 +22,7 @@
 /* ========================================
    Secção: Categorias Pesquisa Texto
 ========================================= */
-/* Resultado Pesquisa Navegação */
+/* Resultado Pesquisa Navegação -> BreadCrumb */
 .resultado_pesquisa_navegacao {
     font-size: 14px;
     color: #d1d5db;
@@ -39,18 +34,17 @@
     color: #d1d5db;
     text-decoration: none;
 }
-
-/* La Redoute / Candeeiro muda a parte do Candeeiro*/
+/* La Redoute / Candeeiro muda a parte do Candeeiro (strong)*/
 .resultado_pesquisa_atual strong {
     color: #6b7280;
     font-weight: bold;
 }
 
-/* Container para organizar o espaço entre o contador e o titulo */
+
+/* Container para organizar o espaço entre o contador e o titulo "Candeeiro 815" */
 .titulo_pesquisa_container {
-    display: flex;
+    display: flex; /*Alinha contador à frente do titulo pesquisa*/
     align-items: center;
-    justify-content: flex-start;
     gap: 15px; /* Espaço entre o título e o contador */
 }
 
@@ -86,13 +80,11 @@
     font-size: 20px;
     font-weight: bold;
     color: #000;
-    display: inline-block;
     margin-bottom: 10px;
 }
 
 .titulo_iluminacao .contador {
     color: #9ca3af;
-    /* Cor cinza */
     font-weight: bold;
 }
 
@@ -106,9 +98,7 @@
 .lista_categorias li {
     font-size: 16px;
     color: #4b5563;
-    /* Cor cinza escuro */
-    display: flex;
-    align-items: center;
+    display: flex; /*Dar melhor alinhamento*/
     gap: 10px; /* Espaço entre o texto e o contador */
     margin-top: 5px;
 }
@@ -117,7 +107,6 @@
 /* Contador Cinza -> Resultados das pesquisas a cinza */
 .contador_cinza {
     color: #d1d5db;
-    /* Cor cinza claro */
     font-size: 14px;
 }
 
@@ -127,28 +116,25 @@
 
 /* Categorias */
 .categorias_candeeiros {
-    display: flex;
+    display: flex; /*Alinhados Horizontalmente*/
     justify-content: space-around;
     margin-bottom: 20px;
     gap: 20px;
-    flex: 1;
+    flex: 1; /*Ocupam todo o espaço e por causa do space around ficam à mesma distancia uns dos outros*/
 }
 
 /* Cada Item de Categoria */
 .categoria_item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: column; /*Texto em baixo da imagem*/
     text-align: center;
     max-width: 100px;
 }
 
 /* Imagem dos Candeeiros */
 .categoria_item img {
-    width: 80px;
+    width: 80px; /*Limitar tamanho imagem*/
     height: 80px;
-    object-fit: contain;
-    /* Garante que a imagem se ajusta ao container sem distorcer */
+    object-fit: contain;/* Garante que a imagem se ajusta ao container sem distorcer */
     margin-bottom: 10px;
 }
 
@@ -159,33 +145,14 @@
 }
 
 
-
-
-.opcoes_cores {
-    display: flex;
-    gap: 10px;
-}
-
-.cor {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-}
-
-/* Ordenação */
-.ordenacao select {
-    margin-right: 10px;
-}
-
-
 /* ========================================
    Secção: Filtros de Ordenacao
 ========================================= */
 
 .filtros_ordenacao {
     display: flex;  /* Alinha os elementos em linha */
-    justify-content: right;
-    gap: 10x;
+    justify-content: right; /*Alinha à direita*/
+    gap: 8px;
     margin-bottom: 40px;
     margin-right: 20;
 }
@@ -207,7 +174,7 @@
 
 /* Container principal */
 .container_principal {
-    display: flex;
+    display: flex; /*Alinha os filtros e os produtos*/
     gap: 20px; /* Espaçamento entre filtros laterais e produtos */
 }
 
@@ -215,8 +182,7 @@
 .filtros {
     width: 220px; /* Largura fixa para os filtros */
     background-color: #ffffff;    
-    margin-top: -85px;
-    
+    margin-top: -85px; /*Ficarem mais em cima*/
 }
 
 
@@ -225,7 +191,6 @@
     background-color: #fff;
     padding: 10px;
     border: 1px solid #ddd;
-    text-align: center;
     cursor:pointer;
 }
 
@@ -317,20 +282,11 @@
     width: 40px;
     height: 40px;
     border: 2px solid #000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     overflow: hidden;
     cursor: pointer;
     transition: border-color 0.5s; /*Transicao de tempo para ficar mais bonito*/
 }
 
-/* Imagem dentro do quadrado */
-.material_item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
 
 /* Texto dos materiais */
 .material_nome {
@@ -341,12 +297,11 @@
 /* Efeito hover no quadrado e texto */
 .material_label:hover .material_item {
     border-color: #007bff;
-    /* Cor azul no hover */
+    color: #007bff;
 }
 
 .material_label:hover .material_nome {
     color: #007bff;
-    /* Cor azul no texto */
 }
 
 /* Checkbox selecionado */
@@ -368,26 +323,20 @@
     display: flex;
     flex-wrap: wrap;
     gap: 20px; /* Espaçamento entre os produtos */
-    justify-content: flex-start;/* Alinha os produtos à esquerda */
     margin-left: 100px;
 }
 
-
-
 .produto {
     width: calc(33.333% - 20px); /* Ajusta para 3 produtos por linha com espaço entre eles */
+    /*33.33% para imagem ocupar 33% da tela e -20px para o espaço entre elas*/
     box-sizing: border-box;
     padding: 10px;
     background-color: #fff;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
     border: none;
 }
 
 .produto img {
     width: 100%;
-    object-fit: cover;/* Garante que as imagens mantenham a proporção */
     margin-bottom: -5px;
 }
 
@@ -401,7 +350,6 @@
 .produto p {
     font-size: 14px;
     color: #555;
-    flex-grow: 1;
     text-align: left;
     margin: 0 0 10px;
 }
@@ -418,11 +366,8 @@
 .paginacao {
     display: flex;
     gap: 10px;
-    font-family: Arial, sans-serif;
     font-size: 16px;
-    align-items: center;
     justify-content: center;
-    width: 100%;
     margin: 20px 0;
 }
 
@@ -432,7 +377,7 @@
     margin: 3px;
 }
 
-.pagina.atual {
+.pagina_atual {
     border: 1px solid #000;
     padding: 2px 8px;
     font-weight: bold;
@@ -441,29 +386,6 @@
 .diversas {
     padding: 0 5px;
 }
-
-/* ========================================
-   Secção: Link rederecionar pagina erro
-=========================================*/
-   .link_sem_estilo {
-       text-decoration: none;
-       /* Remove o sublinhado */
-       color: inherit;
-       /* Mantém a cor original do texto */
-       display: flex;
-       /* Garante que os elementos internos mantenham o alinhamento */
-       align-items: center;
-       /* Alinha verticalmente */
-   }
-
-   .link_sem_estilo:hover,
-   .link_sem_estilo:focus {
-       text-decoration: none;
-       /* Evita mudanças de estilo ao passar o mouse */
-       color: inherit;
-       /* Garante que a cor não mude */
-   }
-
 
 
 

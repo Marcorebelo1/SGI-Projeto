@@ -1,5 +1,7 @@
-/*Produto + Interação*/
-/* Container Principal */
+/*************************
+Secção Produto e Interação 3D
+*************************/
+
 .container_produto {
     display: flex;
     flex-wrap: wrap;
@@ -13,7 +15,7 @@
 .galeria_fotos_produto {
     max-width: 49%;
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /*Miniaturas em baixo da foto produto*/
     gap: 10px;
     align-items: center;
     text-align: center;
@@ -22,7 +24,6 @@
 
 .miniaturas {
     display: flex;
-    flex-wrap: wrap;  
     gap: 10px;
     justify-content: center;
 }
@@ -40,11 +41,6 @@
     border: 2px solid #d65d69;
 }
 
-.imagem_principal_container {
-    position: relative;
-    width: 100%;
-    height: auto;
-}
 
 #imagem_principal_produto {
     position: relative;
@@ -103,7 +99,6 @@
 .marca_produto_candeeiro {
     font-size: 14px;
     color: #e3e4e6;
-    text-transform: uppercase;
     font-weight: normal;
     margin-top: 30px;
 }
@@ -111,72 +106,50 @@
 .marca_produto_candeeiro {
     font-size:14px;
     font-weight: 550;
-    color: #969696;
-  
+    color: #969696; 
 }
 
-/* Contêiner principal */
-.info_produto {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-    gap: 20px;
-}
 
 .nome_produto {
     font-size: 24px;
     font-weight: bold;
     color: #000000;
-    /* Preto */
     margin: 0;
-}
-
-/* Link para descrição */
-.link_descricao {
-    font-size: 14px;
-    color: #6b7280;
-    text-decoration: underline;
-    cursor: pointer;
-    margin-top: 5px;
 }
 
 
 
 /* Container principal */
 .opcoes_produto {
-    display: flex;
-    flex-direction: column;
+    display: flex; /*Ajustar o espaçamentro entre os 4 campos de opcoes*/
+    flex-direction: column; /*Ficar ao lado da figura e das miniaturas*/
     gap: 20px;
     margin: 20px 0;
 }
 
 /* Linha de opções */
 .opcoes_linha {
-    display: flex;
-    justify-content: space-between;
+    display: flex; /*Lado a lado*/
     gap: 20px;
 }
 
 /* Caixa de cada opção */
 .caixa_opcao {
-    flex: 1;
     border: 5px solid #ddd;
     border-radius: 10px;
-  
     padding: 15px;
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /*Por baixo de textura*/
     gap: 10px;
     background-color: #fff;
 }
 .caixa_opcao2 {
-    flex: 1;
+    flex: 1; /*Ocupar espaçamento ate ao final*/
     border: 5px solid #ddd;
     border-radius: 10px;
     padding: 15px;
     display: flex;
-    flex-direction: row;
+    flex-direction: row; /*Por baixo de cores e à frente de cores*/
     gap: 10px;
     background-color: #fff;
 }
@@ -189,18 +162,8 @@
    
 }
 
-/* Valor da opção */
-.valor_opcao {
-    font-size: 16px;
-    font-weight: bold;
-    color: #000;
-    cursor: pointer;
-}
-
-/* Cores disponíveis */
+/* Texturas disponíveis */
 .cores_disponiveis_produto {
-    display: flex;
-    align-items: center;
     gap: 10px;
 }
 
@@ -219,26 +182,18 @@
     cursor: pointer;
 }
 
-/* Quantidade e preço */
-.quantidade_preco_canndeiro {
-    display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 20px; /* Espaço entre quantidade e preço */
-}
-/* Contêiner principal */
+
 .quantidade_preco_candeeiro {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 10px;
-   
     border-radius: 10px;
     padding: 10px;
     background-color: #fff;
 }
 
-/* Campo de quantidade */
+/* Campo Quantidade */
 .campo_quantidade_container {
     display: flex;
     align-items: center;
@@ -252,7 +207,6 @@
     border-radius: 5px;
     text-align: center;
     font-size: 16px;
-    outline: none;
     margin-left: 20px;
 }
 
@@ -274,8 +228,7 @@
 /* Preço */
 .preco_candeeiro_container {
     display: flex;
-    flex-direction: column;
-    align-items: flex-end;
+    flex-direction: column; /*Alinhar o preco riscado com o preco*/
     margin-right: 20px;
     gap: 3px;
 }
@@ -310,12 +263,7 @@
     margin-top: 12px;
 }
 
-/* Responsividade */
-@media (max-width: 768px) {
-    .opcoes_linha {
-        flex-direction: column;
-    }
-}
+
 
 
 /* Contêiner do botão Klarna */
@@ -323,43 +271,37 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    /* Espaço entre a imagem e o texto */
     border: 1px solid #ddd;
     border-radius: 10px;
     padding: 10px;
     background-color: #fff;
     font-size: 14px;
     color: #6b7280;
-    /* Cinza claro */
 }
 
 /* Imagem Klarna */
 .imagem_klarna {
     width: 50px;
-    /* Ajuste o tamanho da imagem conforme necessário */
     height: auto;
 }
 
 /* Link Saber Mais */
 .link_saber_mais {
     color: #6b7280;
-    /* Cinza claro */
     text-decoration: underline;
     cursor: pointer;
 }
 
 .link_saber_mais:hover {
     color: #000;
-    /* Preto no hover */
 }
 
 
-/* Contêiner do botão e ícone */
+/* Container do botão e ícone */
 .botao_carrinho_container {
     display: flex;
     align-items: center;
-    gap: 10px;
-    /* Espaço entre o botão e o ícone */
+    gap: 10px; /* Espaço entre o botão e o ícone */
     justify-content: center;
     margin-top: 20px;
 }
@@ -371,11 +313,9 @@
     padding: 15px 30px;
     font-size: 16px;
     font-weight: bold;
-    text-transform: uppercase;
-    border: none;
     border-radius: 10px;
     cursor: pointer;
-    flex-grow: 1;
+    flex-grow: 1; /*Ocupar o espaço todo*/
     text-align: center;
     transition: background-color 0.3s;
 }
@@ -396,16 +336,22 @@
     transform: scale(1.2);
 }
 
+/*************************
+Secção Ajuste para Telas menores (como nao estava tao responsivo para telas pequenas, optamos por implementar este ajuste)
+*************************/
 
-
+/* Responsividade */
+@media (max-width: 768px) {
+    .opcoes_linha {
+        flex-direction: column;
+    }
+}
 
 /* Ajuste geral para telas pequenas */
 @media (max-width: 768px) {
 
     /* Container principal ocupa toda a largura */
     .container_produto {
-        flex-direction: column;
-        align-items: center;
         gap: 20px;
     }
 
@@ -422,7 +368,6 @@
 
     /* Miniaturas centralizadas e responsivas */
     .miniaturas {
-        justify-content: center;
         gap: 10px;
     }
 
@@ -438,8 +383,6 @@
         padding: 0 20px;
     }
 
-    
-
     /* Botão Klarna e Juntar ao Carrinho centralizados */
     .botao_klarna,
     .botao_carrinho_container {
@@ -449,27 +392,11 @@
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Container Principal */
+/*************************
+Secção Descriçãp Produto
+*************************/
 .descricao_produto {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
+    display: flex; /*Organizar as duas divs principais para ficarem em linha*/
     padding: 20px;
     gap: 20px;
     margin-left: 20px;
@@ -538,6 +465,10 @@
 }
 
 
+/*************************
+Secção Avaliações Clientes - Todos
+*************************/
+
 /* Produtos Relacionados */
 .produtos_relacionados {
     padding: 20px;
@@ -553,9 +484,9 @@
 }
 
 .lista_relacionados {
-    display: flex;
+    display: flex; /*Organizar produtos da lista*/
     gap: 20px;
-    overflow-x: auto;
+    overflow-x: auto; /*Caso existam mais produtos, ativa scroll horizontal*/
     padding-bottom: 10px;
 }
 
@@ -589,8 +520,6 @@
 
 /* Preço */
 .preco {
-    display: flex;
-    flex-direction: column;
     align-items: left;
     gap: 3px;
 }
@@ -622,7 +551,9 @@
 }
 
 
-/* Secção de Avaliações dos Clientes - Todos */
+/*************************
+Secção Avaliações Clientes - Todos
+*************************/
 .avaliacoes_clientes {
     padding: 20px;
     background-color: #fff;
@@ -639,8 +570,6 @@
 /* Layout Flexbox */
 .conteudo_avaliacoes {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
     gap: 30px;
 }
 
@@ -653,7 +582,6 @@
 /* Média de Avaliações */
 .media_avaliacoes {
     text-align: left;
-    flex: 1;
 }
 
 .valor_media {
@@ -663,7 +591,7 @@
 }
 
 .avaliacao_estrelas {
-    display: flex;
+    display: flex; /*152 á frente das estrelas*/
     align-items: center;
     gap: 10px;
 }
@@ -688,9 +616,8 @@
 }
 
 .link_avaliacoes {
-    display: flex;
-    align-items: center;
-    gap: 5px;/* Espaçamento entre o ícone e o texto */
+    display: flex; /*Organizar à frente do i de informacao*/
+    gap: 5px;
     font-size: 14px;
     margin-top: 20px;
 }
@@ -703,18 +630,17 @@
 
 /* Distribuição das Avaliações */
 .distribuicao_avaliacoes {
-    flex: 2;
+    flex: 2; /*Garantir espaçamento*/
 }
 
 .linha_avaliacao {
-    display: flex;
     align-items: center;
     gap: 10px;
     margin-bottom: 10px;
 }
 
 .linha_avaliacao {
-    display: flex;
+    display: flex; /*Organiza a linha da estrela, a barra e o numero de availacoes*/
 }
 
 .numero_estrela {
@@ -765,14 +691,13 @@
 
 
 
+/*************************
+Secção Filtrar e ordendar Reviews
+*************************/
 
-
-
-/* Seccção Filtros Reviews */
 .filtro_ordenacao {
     display: flex;
     justify-content: space-between;
-    align-items: center;
     padding: 15px 20px;
     font-size: 14px;
     margin-left: 20px;
@@ -784,8 +709,6 @@
 .ordenacao_opcao,
 .ver_avaliacoes,
 .idioma_opcao {
-    display: flex;
-    align-items: center;
     gap: 5px;
 }
 
@@ -804,7 +727,10 @@
     margin-right: 20px;
 }
 
-/*Seccção Avaliação Detalhada*/
+
+/*************************
+    Secção em Avaliação Cliente
+*************************/
 .avaliacao_detalhada {
     padding: 20px;
     margin-top: 5px;
@@ -813,19 +739,16 @@
 /* Layout Flexbox para o Conteúdo */
 .conteudo_avaliacao {
     display: flex;
-    justify-content: space-between;
     gap: 40px;
 }
 
 /* Parte Esquerda: Texto da Avaliação */
 .texto_avaliacao {
-    flex: 2;
+    flex: 2; /*Fica no tamanho e na posicao ideal*/
 }
 
 /* Cabeçalho da Avaliação */
 .cabecalho_avaliacao {
-    display: flex;
-    align-items: center;
     gap: 10px;
     margin-bottom: 10px;
     margin-left: 20px;
@@ -857,7 +780,7 @@
     margin-left: 20px;
 }
 
-/* Recomendação */
+/* Recomendação texto a verde */
 .recomendacao {
     display: flex;
     align-items: center;
@@ -930,7 +853,10 @@
 
 
 
-/*Secção em destaque*/
+
+/*************************
+    Secção em destaque
+*************************/
 .em_destaque {
     padding: 20px;
     background-color: #f4f8f8;

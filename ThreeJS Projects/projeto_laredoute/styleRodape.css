@@ -2,22 +2,19 @@
    Secção: Oferta_Email
 ========================================= */
 
+
 .oferta_email {
     background-color: #FFE6E6;
-    /* Cor de fundo rosa claro */
     padding: 50px 20px;
     display: flex;
     justify-content: center;
-    align-items: center;
 }
 
 /* Container central */
 .oferta_email_conteudo {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     gap: 50px;
-    /* Espaçamento entre o título e o formulário */
     max-width: 1000px;
     width: 100%;
 }
@@ -27,17 +24,15 @@
     font-size: 28px;
     font-weight: bold;
     color: black;
-    display: inline-block; /*Aplica propriedade de bloco ao elemento para ele se ir ajustando*/
     text-align: center; /* Centraliza o texto em relação ao bloco */
-    line-height: 1.2; /* Ajusta o espaçamento entre as linhas */
-   margin-bottom: 50px;
+    margin-bottom: 50px;
 }
 
 /* Formulário */
 .oferta_email_formulario {
     flex: 1;
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /*Organiza em coluna para conseguir organizaçao correta elementos*/
     gap: 15px;
 }
 
@@ -48,15 +43,14 @@
     color: black;
 }
 
-/* Container do campo de e-mail e botão */
+/* Container do campo de e-mail e do botão (estar alinhados)*/
 .oferta_email_campo_botao {
-    display: flex;
-    align-items: center;
+    display: flex; /*Alinhar campo texto e botao*/
 }
 
 /* Campo de e-mail */
 .oferta_email_campo {
-    flex: 1;
+    flex: 1; /*Preenche até ao fim (estranho) */
     padding: 15px;
     font-size: 16px;
     border: 1px solid #ccc;
@@ -95,15 +89,13 @@
     background-color: #00454c;
     padding: 40px 20px;
     display: flex;
-    justify-content: space-around; /* Distribui os itens uniformemente */
-    align-items: center;
-    flex-wrap: wrap; /* Permite que os itens quebrem em várias linhas se necessário */
+    justify-content: space-around; /* Mesmo espaçamento entre os elemenentos*/
+    flex-wrap: wrap; /* Responsividade -> Permite que os elementos "quebrem a linha" */
 }
 
 /* Estilo de cada item do rodapé */
 .item_rodape {
     display: flex;
-    /*flex-direction: column;  TODO DECIDIR*/
     align-items: center;
     gap: 10px;
     color: white;
@@ -115,7 +107,6 @@
 .icone_rodape {
     width: 40px;
     height: 40px;
-    object-fit: contain;/* Garante que os ícones mantêm a proporção */
 }
 
 /* Texto do rodapé */
@@ -130,15 +121,14 @@
 .rodape_2 {
     background-color: #00565f;
     padding: 40px 20px;
-    display: flex;
+    display: flex; /*Alinhamento*/
     justify-content: space-around;
-    align-items: flex-start; /* Alinha as colunas no topo */
-    flex-wrap: wrap; /* Permite quebra em telas menores */    
+    flex-wrap: wrap; /* "Quebrar a linha em telas mais pequenas" */    
 }
 
 /* Coluna do rodapé */
 .coluna_rodape {
-    flex: 1;
+    flex: 1; /* Ocupa o espaço disponível, torna as colunas mais responsivas */
     max-width: 220px; /* Largura máxima de cada coluna */
     margin: 10px; /* Espaçamento entre as colunas */
 }
@@ -153,17 +143,17 @@
 
 /* Lista de links */
 .lista_rodape {
-    list-style: none;
+    list-style: none; /* Remove os pontos identificadores da lista */
     padding: 0;
     margin: 0;
 }
 
 /* Links da lista */
 .lista_rodape li {
-    margin-bottom: 10px;
-    /* Espaçamento entre os itens da lista */
+    margin-bottom: 10px; /* Espaçamento entre os elementos da lista */
 }
 
+/* Retira estilo dos links */
 .lista_rodape a {
     color: white;
     text-decoration: none;
@@ -171,16 +161,15 @@
 }
 
 .lista_rodape a:hover {
-    text-decoration: underline;
-    /* Sublinhado ao passar o mouse */
+    text-decoration: underline;/* Sublinhado ao passar o rato */
 }
 
 .linha_separadora {
     border: none;
     border-top: 1px solid #ffffff;
-    width: 95%;
-    margin-top: 70px;
-    height: 0;
+    width: 95%; /*Do espaço da div do rodape*/
+    margin-top: 70px; /*Espaçamento entre linha e a parte de cima*/
+    
 }
 
 /* ========================================
@@ -192,16 +181,14 @@
     padding: 20px 20px 0 20px;
     display: flex;
     justify-content: space-around; /* Distribui as colunas uniformemente */
-    align-items: flex-start; /* Alinha os itens ao topo */
     flex-wrap: wrap; /* Permite quebra em telas menores */
 }
 
 /* Coluna do rodapé 3 */
 .coluna_rodape_3 {
-    flex: 1;
     max-width: 220px;
     margin: 10px;
-    text-align: center;
+    text-align: center; /* Alinha imagem com o texto */
 }
 
 /* Título das colunas */
@@ -212,11 +199,9 @@
     margin-bottom: 5px;
 }
 
-/* Ícone do grupo */
+/* Ícone do grupo de fotos */
 .icone_grupo {
     width: 100%;/* Ajusta a largura para ocupar o container */
-    max-width: 150px; /* Define um tamanho máximo para a imagem */
-    height: auto;
     margin-bottom:0px;
 }
 
@@ -250,8 +235,7 @@
 }
 
 .links_rodape a:hover {
-    text-decoration: underline;
-    /* Sublinhado ao passar o mouse */
+    text-decoration: underline; /*Efeito link ao passar rato*/
 }
 
 .links_rodape span {
@@ -260,9 +244,9 @@
 
 /* Secção do idioma */
 .idioma_rodape {
-    display: flex;
-    align-items: center;
-    gap: 5px; /* Espaçamento entre o ícone e o texto */
+    display: flex; /*Ordena*/
+    align-items: center; /*Junta ao centro*/
+    gap: 5px; 
     margin-right: 40px;
 }
 

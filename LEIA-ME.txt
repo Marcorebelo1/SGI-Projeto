@@ -1,0 +1,43 @@
+Bom dia.
+Para facilitar a organização do projeto, optámos por dividir os arquivos
+em 4 pastas.
+
+Cenário e Animações 3D:
+	Animacoes.blend -> Animações do Aplique Articulado
+	Cenario.blend -> Cenário Usado para as Fotos
+	Documentação - Cenário e Animações 3D
+	
+Documentação:
+	Pasta AH com as Analises Heuristicas 
+		Registo da AH - Grupo (neste encontra-se a junção e discussão das heurísticas)
+		Template - Marco AH
+		Template - Vitor AH
+	AUT e Lista Requestios Funcionais
+		AUT pelos profissionais (ficheiro que criei com o intuito de facilitar a criação das perguntas do questionário)
+		AUT Questionário
+		Lista Requestios Funcionais
+	Questionário SUS
+	Relatório SGI (obs: como não tinhamos a certeza do que colocar no relatório, optámos por colocar o conteudo do respetivo documento, que já inclui as conclusões dos mesmos. Não tinhamos a certeza se queriam apenas as conclusões...)
+
+Prototipagem:
+	Projeto SGI - Prototipagem.fig
+
+ThreeJS Projects:
+	projeto_laredoute -> o projeto encontra-se nesta pastas
+		index.html -> página de seleção do produto
+		productPage.html -> página do produto com interação 3D
+		NotFound404.html -> página de erro 404
+		
+		Ficheiros CSS:
+		styleCabeçalho
+		styleConteudo (index.html)
+		styleConteudoPaginaProduto (productPage)
+		styleRodape 
+		
+		Script com interação 3D
+		scripts.js
+		
+		Pasta BlenderFiles -> Arquivo glb e a textura de madeira
+		Pasta Icons&Images -> Todos os arquivos utilizados na interface
+		
+Obrigado, qualquer dúvida entre em contacto connosco.
